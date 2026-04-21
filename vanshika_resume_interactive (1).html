@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanshika Dhiman – Performance Marketer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #0a0a0f; color: #f0ede8; padding: 2.5rem 2rem; max-width: 680px; margin: 0 auto; }
+    .hero { display: flex; flex-direction: column; gap: 4px; margin-bottom: 2.5rem; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #c8a96e; font-weight: 500; }
+    .hero-name { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 800; line-height: 1.05; color: #f0ede8; }
+    .hero-role { font-size: 14px; color: #888; margin-top: 4px; font-weight: 300; }
+    .award-pill { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #c8a96e22, #c8a96e11); border: 0.5px solid #c8a96e55; border-radius: 100px; padding: 5px 14px; font-size: 12px; color: #c8a96e; font-weight: 500; margin-top: 10px; width: fit-content; }
+    .award-dot { width: 6px; height: 6px; border-radius: 50%; background: #c8a96e; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+    .section-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; font-weight: 500; margin-bottom: 0.75rem; }
+    .divider { height: 0.5px; background: #1e1e2a; margin: 1.5rem 0; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 2rem; }
+    .metric-card { background: #13131a; border: 0.5px solid #2a2a35; border-radius: 12px; padding: 1rem 1.1rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+    .metric-card:hover { border-color: #3a3a50; transform: translateY(-2px); }
+    .metric-card.gold { border-color: #c8a96e44; } .metric-card.gold:hover { border-color: #c8a96e88; }
+    .metric-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--accent, #3a3a50); opacity: 0.7; }
+    .metric-card.gold::before { --accent: #c8a96e; } .metric-card.blue::before { --accent: #4a9eff; } .metric-card.green::before { --accent: #4ade80; } .metric-card.red::before { --accent: #ff6b6b; }
+    .metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: #555; font-weight: 500; margin-bottom: 6px; }
+    .metric-value { font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 700; line-height: 1; }
+    .metric-card.gold .metric-value { color: #c8a96e; } .metric-card.blue .metric-value { color: #4a9eff; } .metric-card.green .metric-value { color: #4ade80; } .metric-card.red .metric-value { color: #ff6b6b; }
+    .metric-sub { font-size: 11px; color: #444; margin-top: 4px; }
+    .metric-change { position: absolute; top: 1rem; right: 1rem; font-size: 10px; font-weight: 500; }
+    .up { color: #4ade80; } .down { color: #ff6b6b; }
+    .roas-chart { display: flex; align-items: flex-end; gap: 4px; height: 90px; margin-bottom: 6px; }
+    .bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; height: 100%; justify-content: flex-end; }
+    .bar { width: 100%; border-radius: 3px 3px 0 0; transition: opacity 0.2s; min-height: 3px; }
+    .bar-wrap:hover .bar { opacity: 0.7; }
+    .bar-month { font-size: 8px; color: #444; text-align: center; }
+    .bar-val { font-size: 8px; color: #666; text-align: center; }
+    .breadth-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .breadth-card { background: #13131a; border: 0.5px solid #2a2a35; border-radius: 10px; padding: 0.9rem 1rem; transition: transform 0.2s, border-color 0.2s; }
+    .breadth-card:hover { transform: translateY(-2px); border-color: #3a3a50; }
+    .breadth-title { font-size: 12px; font-weight: 500; color: #f0ede8; margin-bottom: 4px; }
+    .breadth-desc { font-size: 11px; color: #555; line-height: 1.5; }
+    .breadth-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .btag { font-size: 9px; padding: 2px 7px; border-radius: 100px; border: 0.5px solid; font-weight: 500; }
+    .btag-gold { background: #c8a96e11; border-color: #c8a96e33; color: #c8a96e; }
+    .btag-blue { background: #4a9eff11; border-color: #4a9eff33; color: #4a9eff; }
+    .btag-pink { background: #f472b611; border-color: #f472b633; color: #f472b6; }
+    .btag-green { background: #4ade8011; border-color: #4ade8033; color: #4ade80; }
+    .exp-card { background: #13131a; border: 0.5px solid #2a2a35; border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 8px; transition: border-color 0.2s; }
+    .exp-card:hover { border-color: #3a3a50; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .exp-co { font-weight: 500; font-size: 13px; color: #f0ede8; }
+    .exp-role { font-size: 11px; color: #555; margin-top: 2px; }
+    .exp-date { font-size: 10px; color: #333; text-align: right; flex-shrink: 0; margin-left: 8px; }
+    .exp-highlights { display: flex; flex-direction: column; gap: 4px; }
+    .exp-hl { display: flex; align-items: flex-start; gap: 6px; font-size: 11px; color: #666; line-height: 1.4; }
+    .exp-hl::before { content: '—'; color: #333; flex-shrink: 0; margin-top: 1px; }
+    .exp-hl span { color: #888; }
+    .exp-hl strong { color: #c8a96e; font-weight: 500; }
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .edu-card { background: #13131a; border: 0.5px solid #2a2a35; border-radius: 10px; padding: 0.9rem 1rem; }
+    .edu-inst { font-size: 12px; font-weight: 500; color: #f0ede8; margin-bottom: 3px; }
+    .edu-deg { font-size: 11px; color: #555; }
+    .edu-year { font-size: 10px; color: #333; margin-top: 3px; }
+    .edu-por { font-size: 10px; color: #a78bfa; margin-top: 5px; }
+    .funnel-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .funnel-label { font-size: 11px; color: #555; width: 75px; flex-shrink: 0; }
+    .funnel-bar-bg { flex: 1; height: 6px; background: #1e1e2a; border-radius: 3px; overflow: hidden; }
+    .funnel-bar-fill { height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .funnel-val { font-size: 11px; color: #555; width: 55px; text-align: right; flex-shrink: 0; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { padding: 5px 12px; border-radius: 100px; font-size: 11px; font-weight: 500; border: 0.5px solid; transition: transform 0.15s; cursor: default; }
+    .skill-tag:hover { transform: scale(1.05); }
+    .tag-blue { background: #4a9eff11; border-color: #4a9eff44; color: #4a9eff; }
+    .tag-gold { background: #c8a96e11; border-color: #c8a96e44; color: #c8a96e; }
+    .tag-green { background: #4ade8011; border-color: #4ade8044; color: #4ade80; }
+    .tag-pink { background: #f472b611; border-color: #f472b644; color: #f472b6; }
+    .tag-purple { background: #a78bfa11; border-color: #a78bfa44; color: #a78bfa; }
+    .contact-row { display: flex; gap: 16px; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 0.5px solid #1e1e2a; flex-wrap: wrap; }
+    .contact-item { font-size: 11px; color: #444; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="hero-tag">Performance Marketer · IIM Rohtak · Delhi NCR</span>
+    <div class="hero-name">Vanshika<br>Dhiman</div>
+    <div class="hero-role">Performance · Brand · Consumer Research · ATL/BTL · Automation</div>
+    <div class="award-pill">
+      <div class="award-dot"></div>
+      Star Performer · March 2026 · Physics Wallah · ROAS 7.27
+    </div>
+  </div>
+
+  <div class="section-label">Marketing breadth</div>
+  <div class="breadth-grid">
+    <div class="breadth-card">
+      <div class="breadth-title">Performance Marketing</div>
+      <div class="breadth-desc">₹25 Cr+ spend, ROAS 1.11→7.27, 81% CAC reduction, API automation</div>
+      <div class="breadth-tags"><span class="btag btag-gold">Google Ads</span><span class="btag btag-gold">Meta Ads</span><span class="btag btag-gold">n8n</span></div>
+    </div>
+    <div class="breadth-card">
+      <div class="breadth-title">Brand & Creative</div>
+      <div class="breadth-desc">Festive campaigns for Dabur, TVCs, Press Ads, 360° brand management</div>
+      <div class="breadth-tags"><span class="btag btag-pink">ATL/BTL</span><span class="btag btag-pink">OOH</span><span class="btag btag-pink">Radio</span></div>
+    </div>
+    <div class="breadth-card">
+      <div class="breadth-title">Consumer Research</div>
+      <div class="breadth-desc">Focus groups 40+ participants, brand perception benchmarking, packaging insights</div>
+      <div class="breadth-tags"><span class="btag btag-blue">FMCG</span><span class="btag btag-blue">Focus Groups</span></div>
+    </div>
+    <div class="breadth-card">
+      <div class="breadth-title">Growth & Analytics</div>
+      <div class="breadth-desc">MoEngage, AppsFlyer, $25.7B AUM insights, AI-powered research workflows</div>
+      <div class="breadth-tags"><span class="btag btag-green">MoEngage</span><span class="btag btag-green">AppsFlyer</span><span class="btag btag-green">AI Tools</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Key metrics · Apr 2025 – Apr 2026</div>
+  <div class="metrics-grid">
+    <div class="metric-card gold">
+      <div class="metric-label">Revenue Driven</div>
+      <div class="metric-value" id="rev">₹0</div>
+      <div class="metric-sub">Google + Meta combined</div>
+    </div>
+    <div class="metric-card blue">
+      <div class="metric-label">Ad Spend Managed</div>
+      <div class="metric-value" id="spend">₹0</div>
+      <div class="metric-sub">annual paid media</div>
+    </div>
+    <div class="metric-card green">
+      <div class="metric-label">ROAS Peak</div>
+      <div class="metric-value" id="roas">0</div>
+      <div class="metric-change up">1.11 → 7.27</div>
+      <div class="metric-sub">March 2026</div>
+    </div>
+    <div class="metric-card red">
+      <div class="metric-label">CAC Reduction</div>
+      <div class="metric-value" id="cac">0%</div>
+      <div class="metric-change down">₹15.7K → ₹2.97K</div>
+      <div class="metric-sub">cost per acquisition</div>
+    </div>
+  </div>
+
+  <div class="section-label">ROAS journey · Apr 2025 – Apr 2026</div>
+  <div class="roas-chart" id="roasChart"></div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Funnel performance</div>
+  <div class="funnel-row">
+    <div class="funnel-label">Revenue</div>
+    <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:0%;background:#c8a96e" id="fb1"></div></div>
+    <div class="funnel-val">₹45.2 Cr</div>
+  </div>
+  <div class="funnel-row">
+    <div class="funnel-label">Conv. Rate</div>
+    <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:0%;background:#4a9eff" id="fb2"></div></div>
+    <div class="funnel-val">7.87% avg</div>
+  </div>
+  <div class="funnel-row">
+    <div class="funnel-label">Best ROAS</div>
+    <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:0%;background:#4ade80" id="fb3"></div></div>
+    <div class="funnel-val">7.27 Mar</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Experience</div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div><div class="exp-co">Physics Wallah</div><div class="exp-role">Manager – Paid Digital</div></div>
+      <div class="exp-date">Apr 2025 – Present</div>
+    </div>
+    <div class="exp-highlights">
+      <div class="exp-hl"><span>Managed <strong>₹25 Cr+</strong> ad spend driving <strong>₹45.2 Cr</strong> revenue across Google & Meta</span></div>
+      <div class="exp-hl"><span>Scaled ROAS <strong>1.11 → 7.27</strong> — Star Performer March 2026</span></div>
+      <div class="exp-hl"><span>Reduced CAC by <strong>81%</strong> (₹15,706 → ₹2,971) over 13 months</span></div>
+      <div class="exp-hl"><span>Built n8n + API automation pipelines for reporting and campaign scaling</span></div>
+      <div class="exp-hl"><span>Cross-functional work with content & category teams on paid creative strategy</span></div>
+    </div>
+  </div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div><div class="exp-co">Poppy Seed Communication</div><div class="exp-role">Client Servicing Executive · Dabur, V-Mart, DS Group</div></div>
+      <div class="exp-date">Oct 2020 – Oct 2021</div>
+    </div>
+    <div class="exp-highlights">
+      <div class="exp-hl"><span>Managed <strong>360° marketing</strong> — ATL/BTL, OOH, radio, digital, influencer for V-Mart</span></div>
+      <div class="exp-hl"><span>Optimised V-Mart's <strong>₹9.6 Cr budget</strong>, improving ROI by 20%</span></div>
+      <div class="exp-hl"><span>Conceptualised <strong>Dabur festive campaigns</strong> via TVCs and Press Ads, +10% engagement</span></div>
+      <div class="exp-hl"><span>ORM for healthcare brands via Sprout Social, cutting response time by 50%</span></div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:1.2rem">Internships</div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div><div class="exp-co">Cremica Biscuits / English Oven</div><div class="exp-role">Marketing Trainee</div></div>
+      <div class="exp-date">Apr – May 2023</div>
+    </div>
+    <div class="exp-highlights">
+      <div class="exp-hl"><span>Ran <strong>focus groups with 40+ consumers</strong> for packaging & brand perception research</span></div>
+      <div class="exp-hl"><span>Influencer campaign across 50+ creators, drove +5% social reach</span></div>
+      <div class="exp-hl"><span>Benchmarked brand vs. competitors; insights fed into category positioning</span></div>
+    </div>
+  </div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div><div class="exp-co">ICICI Bank</div><div class="exp-role">Management Trainee – Sales</div></div>
+      <div class="exp-date">Apr – May 2024</div>
+    </div>
+    <div class="exp-highlights">
+      <div class="exp-hl"><span>Generated insights on <strong>$25.7B AUM</strong> to refine business plans and growth strategy</span></div>
+      <div class="exp-hl"><span>Prospected 120+ startups & funds, evaluated Tier 2/3 market potential</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-inst">IIM Rohtak</div>
+      <div class="edu-deg">MBA – Marketing & IT/Analytics</div>
+      <div class="edu-year">2023 – 2025</div>
+      <div class="edu-por">Special Projects Head · Marque Marketing Club</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-inst">ARSD, Delhi University</div>
+      <div class="edu-deg">BA Honours English</div>
+      <div class="edu-year">2017 – 2020</div>
+      <div class="edu-por">President · English Dept & Tilt Film Society</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Full stack</div>
+  <div class="skills-grid">
+    <span class="skill-tag tag-gold">Google Ads</span>
+    <span class="skill-tag tag-gold">Meta Ads</span>
+    <span class="skill-tag tag-gold">n8n Automation</span>
+    <span class="skill-tag tag-gold">Google API</span>
+    <span class="skill-tag tag-gold">Meta API</span>
+    <span class="skill-tag tag-green">MoEngage</span>
+    <span class="skill-tag tag-green">AppsFlyer</span>
+    <span class="skill-tag tag-blue">ATL / BTL</span>
+    <span class="skill-tag tag-blue">OOH & Radio</span>
+    <span class="skill-tag tag-blue">ORM</span>
+    <span class="skill-tag tag-pink">Consumer Research</span>
+    <span class="skill-tag tag-pink">Focus Groups</span>
+    <span class="skill-tag tag-pink">A/B Testing</span>
+    <span class="skill-tag tag-purple">AI Research</span>
+    <span class="skill-tag tag-purple">Campaign Scaling</span>
+    <span class="skill-tag tag-purple">Influencer Mktg</span>
+  </div>
+
+  <div class="contact-row">
+    <span class="contact-item">+91 8860292830</span>
+    <span class="contact-item">vanshikadhimanof@gmail.com</span>
+    <span class="contact-item">Delhi NCR</span>
+  </div>
+
+  <script>
+    const roasData = [
+      { m: 'Apr', v: 1.11 }, { m: 'May', v: 1.35 }, { m: 'Jun', v: 1.68 },
+      { m: 'Jul', v: 1.12 }, { m: 'Aug', v: 1.02 }, { m: 'Sep', v: 1.34 },
+      { m: 'Oct', v: 1.59 }, { m: 'Nov', v: 2.34 }, { m: 'Dec', v: 3.93 },
+      { m: 'Jan', v: 3.61 }, { m: 'Feb', v: 3.12 }, { m: 'Mar', v: 7.27 }, { m: 'Apr', v: 4.54 }
+    ];
+    const maxV = Math.max(...roasData.map(d => d.v));
+    const chart = document.getElementById('roasChart');
+    roasData.forEach((d, i) => {
+      const pct = d.v / maxV;
+      const isMar = i === 11;
+      const color = isMar ? '#c8a96e' : `hsl(${Math.round(20 + pct * 80)}, 55%, ${35 + pct * 28}%)`;
+      chart.innerHTML += `<div class="bar-wrap"><div class="bar-val" style="color:${isMar?'#c8a96e':'#555'}">${d.v}</div><div class="bar" style="height:${Math.max(pct*72,3)}px;background:${color}"></div><div class="bar-month" style="color:${isMar?'#c8a96e':'#444'}">${d.m}</div></div>`;
+    });
+
+    function animateCount(el, end, prefix, suffix, decimals, duration) {
+      let start = 0, step = end / (duration / 16);
+      const tick = () => {
+        start = Math.min(start + step, end);
+        el.textContent = prefix + (decimals ? start.toFixed(decimals) : Math.round(start)) + suffix;
+        if (start < end) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+    setTimeout(() => {
+      animateCount(document.getElementById('rev'), 45.2, '₹', 'Cr', 1, 1200);
+      animateCount(document.getElementById('spend'), 25, '₹', 'Cr+', 0, 1000);
+      animateCount(document.getElementById('roas'), 7.27, '', 'x', 2, 1400);
+      animateCount(document.getElementById('cac'), 81, '', '%', 0, 1100);
+      setTimeout(() => {
+        document.getElementById('fb1').style.width = '100%';
+        document.getElementById('fb2').style.width = '60%';
+        document.getElementById('fb3').style.width = '100%';
+      }, 400);
+    }, 300);
+  </script>
+</body>
+</html>
